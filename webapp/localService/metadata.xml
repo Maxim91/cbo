@@ -1,0 +1,70 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/></edmx:Reference>
+	<edmx:Reference xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
+		Uri="./IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="ZZ1_SOCCERGAME_CDS" xml:lang="ru" sap:schema-version="1">
+			<EntityType Name="P_Scbo_UserType" sap:label="User" sap:content-version="1">
+				<Key><PropertyRef Name="name"/></Key><Property Name="name" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Пользователь"
+					sap:quickinfo="Имя пользователя в основной записи пользователя"/><Property Name="description" Type="Edm.String" MaxLength="80" sap:label="Описание"
+					sap:quickinfo="Описание технической учетной записи пользователя"/></EntityType>
+			<EntityType Name="ZZ1_SOCCERGAMEType" sap:label="Soccer game" sap:content-version="1">
+				<Key><PropertyRef Name="SAP_UUID"/></Key><Property Name="SAP_UUID" Type="Edm.Guid" Nullable="false" sap:label="UUID" sap:quickinfo="16 Byte UUID in 16 Bytes (Raw Format)"/><Property Name="ID" Type="Edm.String" MaxLength="10" sap:display-format="NonNegative" sap:label="ID"/><Property Name="SAP_Description" Type="Edm.String" MaxLength="80" sap:label="Description"/><Property Name="Description" Type="Edm.String" MaxLength="20" sap:label="Description"/><Property Name="StartDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Start Date Time"/><Property Name="EndDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="End Date Time"/><Property Name="SAP_CreatedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Created On" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SAP_CreatedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_CreatedByUser_Text"
+					sap:label="Created By" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_CreatedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Описание"
+					sap:quickinfo="Описание технической учетной записи пользователя" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_LastChangedDateTime" Type="Edm.DateTimeOffset" Precision="7" sap:label="Last Changed On" sap:creatable="false"
+					sap:updatable="false"/><Property Name="SAP_LastChangedByUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="SAP_LastChangedByUser_Text"
+					sap:label="Last Changed By" sap:creatable="false" sap:updatable="false"/><Property Name="SAP_LastChangedByUser_Text" Type="Edm.String" MaxLength="80" sap:label="Описание"
+					sap:quickinfo="Описание технической учетной записи пользователя" sap:creatable="false" sap:updatable="false"/><NavigationProperty Name="to_SAPSysAdminDataChangeUser" Relationship="ZZ1_SOCCERGAME_CDS.assoc_96B833F806DD948543C83ECA0B6812F7"
+					FromRole="FromRole_assoc_96B833F806DD948543C83ECA0B6812F7" ToRole="ToRole_assoc_96B833F806DD948543C83ECA0B6812F7"/><NavigationProperty Name="to_SAPSysAdminDataCreateUser" Relationship="ZZ1_SOCCERGAME_CDS.assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"
+					FromRole="FromRole_assoc_C5D73C25CEC25BB2D2B6DD181996EEF0" ToRole="ToRole_assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"/></EntityType>
+			<Association Name="assoc_C5D73C25CEC25BB2D2B6DD181996EEF0" sap:content-version="1"><End Type="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType" Multiplicity="1" Role="FromRole_assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"/><End Type="ZZ1_SOCCERGAME_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"/></Association>
+			<Association Name="assoc_96B833F806DD948543C83ECA0B6812F7" sap:content-version="1"><End Type="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType" Multiplicity="1" Role="FromRole_assoc_96B833F806DD948543C83ECA0B6812F7"/><End Type="ZZ1_SOCCERGAME_CDS.P_Scbo_UserType" Multiplicity="0..1" Role="ToRole_assoc_96B833F806DD948543C83ECA0B6812F7"/></Association>
+			<EntityContainer Name="ZZ1_SOCCERGAME_CDS_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true"
+				sap:supported-formats="atom json xlsx"><EntitySet Name="P_Scbo_User" EntityType="ZZ1_SOCCERGAME_CDS.P_Scbo_UserType" sap:creatable="false" sap:updatable="false"
+				sap:deletable="false" sap:addressable="false" sap:content-version="1"/><EntitySet Name="ZZ1_SOCCERGAME" EntityType="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType" sap:searchable="true" sap:content-version="1"/>
+				<AssociationSet Name="assoc_C5D73C25CEC25BB2D2B6DD181996EEF0" Association="ZZ1_SOCCERGAME_CDS.assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ1_SOCCERGAME" Role="FromRole_assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"/><End EntitySet="P_Scbo_User" Role="ToRole_assoc_C5D73C25CEC25BB2D2B6DD181996EEF0"/></AssociationSet>
+				<AssociationSet Name="assoc_96B833F806DD948543C83ECA0B6812F7" Association="ZZ1_SOCCERGAME_CDS.assoc_96B833F806DD948543C83ECA0B6812F7"
+					sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"><End EntitySet="ZZ1_SOCCERGAME" Role="FromRole_assoc_96B833F806DD948543C83ECA0B6812F7"/><End EntitySet="P_Scbo_User" Role="ToRole_assoc_96B833F806DD948543C83ECA0B6812F7"/></AssociationSet>
+				<FunctionImport Name="ZZ1_SOCCERGAMESap_upsert" ReturnType="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType" EntitySet="ZZ1_SOCCERGAME"
+					m:HttpMethod="POST"><Parameter Name="ID" Type="Edm.String" Mode="In" MaxLength="10"/><Parameter Name="SAP_Description" Type="Edm.String" Mode="In" MaxLength="80"/><Parameter Name="Description" Type="Edm.String" Mode="In" MaxLength="20"/><Parameter Name="StartDateTime" Type="Edm.DateTimeOffset" Mode="In" Precision="7"/><Parameter Name="EndDateTime" Type="Edm.DateTimeOffset" Mode="In" Precision="7"/></FunctionImport>
+			</EntityContainer>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAME_CDS_Entities"><Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+				<Annotation Term="Aggregation.ApplySupported">
+					<Record>
+						<PropertyValue Property="Transformations">
+							<Collection>
+								<String>aggregate</String>
+								<String>groupby</String>
+								<String>filter</String>
+							</Collection>
+						</PropertyValue><PropertyValue Property="Rollup" EnumMember="None"/></Record>
+				</Annotation>
+			</Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/ID"><Annotation Term="Common.FieldControl" EnumMember="Common.FieldControlType/Mandatory"/></Annotations>
+			<Annotations xmlns="http://docs.oasis-open.org/odata/ns/edm" Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType">
+				<Annotation Term="Common.SemanticKey">
+					<Collection>
+						<PropertyPath>ID</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./sap/ZZ1_SOCCERGAME_CDS/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./sap/ZZ1_SOCCERGAME_CDS/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

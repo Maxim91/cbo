@@ -1,0 +1,85 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/></edmx:Reference>
+	<edmx:Reference Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/></edmx:Reference>
+	<edmx:Reference
+		Uri="../../catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value"><edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/></edmx:Reference>
+	<edmx:Reference Uri="../../../sap/zz1_soccergame_cds/$metadata"><edmx:Include Namespace="ZZ1_SOCCERGAME_CDS" Alias="SAP"/></edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="zz1_soccergame_cds_van.v1">
+			<Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/SAP_UUID"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/_SAPSysAdminDataChangeUser"><Annotation Term="UI.Hidden"/></Annotations>
+			<Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/_SAPSysAdminDataCreateUser"><Annotation Term="UI.Hidden"/></Annotations><Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/Description"/>
+			<Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/SAP_CreatedByUser">
+				<Annotation Term="Common.Text" Path="SAP_CreatedByUser_Text"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations>
+			<Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType/SAP_LastChangedByUser">
+				<Annotation Term="Common.Text" Path="SAP_LastChangedByUser_Text"><Annotation Term="UI.TextArrangement" EnumMember="UI.TextArrangementType/TextOnly"/></Annotation>
+			</Annotations>
+			<Annotations Target="ZZ1_SOCCERGAME_CDS.ZZ1_SOCCERGAMEType">
+				<Annotation Term="UI.Facets">
+					<Collection>
+						<Record Type="UI.CollectionFacet"><PropertyValue Property="Label" String="Soccer game"/><PropertyValue Property="ID" String="SOCCERGAME"/>
+							<PropertyValue Property="Facets">
+								<Collection>
+									<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="General Information"/><PropertyValue Property="ID" String="SOCCERGAMEGeneralInformation"/><PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInformation"/></Record>
+									<Record Type="UI.ReferenceFacet"><PropertyValue Property="Label" String="System Administrative Data"/><PropertyValue Property="ID" String="SOCCERGAMESystemAdministrativeData"/><PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#SystemAdministrativeData"/></Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="GeneralInformation">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="ID"/><PropertyValue Property="Value" Path="ID"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Description"/><PropertyValue Property="Value" Path="SAP_Description"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Description"/><PropertyValue Property="Value" Path="Description"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Start Date Time"/><PropertyValue Property="Value" Path="StartDateTime"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="End Date Time"/><PropertyValue Property="Value" Path="EndDateTime"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.FieldGroup" Qualifier="SystemAdministrativeData">
+					<Record>
+						<PropertyValue Property="Data">
+							<Collection>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Created On"/><PropertyValue Property="Value" Path="SAP_CreatedDateTime"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Created By"/><PropertyValue Property="Value" Path="SAP_CreatedByUser"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Last Changed On"/><PropertyValue Property="Value" Path="SAP_LastChangedDateTime"/></Record>
+								<Record Type="UI.DataField"><PropertyValue Property="Label" String="Last Changed By"/><PropertyValue Property="Value" Path="SAP_LastChangedByUser"/></Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record><PropertyValue Property="TypeName" String="Soccer game"/><PropertyValue Property="TypeNamePlural" String="Soccer games"/>
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField"><PropertyValue Property="Value" Path="ID"/></Record>
+						</PropertyValue>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="ID"/><PropertyValue Property="Value" Path="ID"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Description"/><PropertyValue Property="Value" Path="Description"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Start Date Time"/><PropertyValue Property="Value" Path="StartDateTime"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="End Date Time"/><PropertyValue Property="Value" Path="EndDateTime"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Description"/><PropertyValue Property="Value" Path="SAP_Description"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Created On"/><PropertyValue Property="Value" Path="SAP_CreatedDateTime"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Created By"/><PropertyValue Property="Value" Path="SAP_CreatedByUser"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Last Changed On"/><PropertyValue Property="Value" Path="SAP_LastChangedDateTime"/></Record>
+						<Record Type="UI.DataField"><PropertyValue Property="Label" String="Last Changed By"/><PropertyValue Property="Value" Path="SAP_LastChangedByUser"/></Record>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
